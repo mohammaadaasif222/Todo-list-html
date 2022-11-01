@@ -7,12 +7,17 @@ form.addEventListener("submit", function (e) {
   let btnCompelete = document.createElement("button");
   let btnDelete = document.createElement("button");
   let el = document.createElement("li");
-  el.innerHTML = `<h3>${x.value}</h3>`;
+  if(x.value === '' || x.value === ' '){
+  alert("Empty filed cannot be added")
+   return;
+  }else{
+    el.innerHTML = `<h3>${x.value}</h3>`;
+  }
   uList.appendChild(el);
   btnCompelete.innerText = "Complete";
   btnDelete.innerText = "Delete";
-btnCompelete.setAttribute('class',"complete-btn btn btn-warning");
-btnDelete.setAttribute('class',"trash-btn btn btn-danger");
+  btnCompelete.setAttribute("class", "complete-btn btn btn-warning");
+  btnDelete.setAttribute("class", "trash-btn btn btn-danger");
 
   btnCompelete.addEventListener("click", function (e) {
     if (!el.classList.contains("complete")) {
@@ -28,5 +33,5 @@ btnDelete.setAttribute('class',"trash-btn btn btn-danger");
   });
   uList.appendChild(btnCompelete);
   uList.appendChild(btnDelete);
-  x.value =' ';
+  x.value = " ";
 });
